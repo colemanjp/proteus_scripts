@@ -6,13 +6,13 @@ Proteus [https://github.com/pry0cc/proteus](https://github.com/pry0cc/proteus)
 
 Axiom [https://github.com/pry0cc/axiom](https://github.com/pry0cc/axiom)
 
-Scripts require tmux, anew, notify, locally and assume you are running the tools, aquatone, nuclei, paramspider from axiom.
+Scripts require tmux, anew, notify, locally and assume you are running the tools: aquatone, nuclei, paramspider, from axiom. Command line examples use a wrapper script so they work from cron.
 
 ## aquatonenew.sh
 
 Runs aquatone on the last day's new URLs found by proteus
 
-`55 03 * * * "${HOME}"/Projects/proteus_output/scripts/wrapper.sh -c "${HOME}/Projects/proteus_output/scripts/aquatonenew.sh" -s "aquatonenew" > /dev/null`
+`"${HOME}"/Projects/proteus_output/scripts/wrapper.sh -c "${HOME}/Projects/proteus_output/scripts/aquatonenew.sh" -s "aquatonenew" > /dev/null`
 
 ## nucleinew.sh
 
