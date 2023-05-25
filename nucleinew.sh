@@ -9,11 +9,6 @@ URLNEW="${HOME}"/Projects/proteus_output/nuclei.url.txt.new
 # New nuclei output
 NNEW="${HOME}"/Projects/proteus_output/nuclei.new
 
-#source "${HOME}"/Projects/proteus_output/scripts/aws.txt
-
-# Set current image
-#$HOME/.axiom/interact/axiom-images set "${IMAGE}" >/dev/null
-
 # Collect new URLs since last run
 find "${HOME}"/.proteus/rawdata -newer "${TSTAMP}" -name url.txt.new  -exec cat {} \; > "${URLNEW}"
 
