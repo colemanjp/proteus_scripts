@@ -1,24 +1,27 @@
 #!/bin/sh
 
+echo "BROKEN"
+exit 127
+
 # paramspider dir
 PS="${HOME}"/Projects/proteus_output/paramspider
 
 # Timestamp
 TSTAMP="${PS}"/paramspider.timestamp
 
-# New URLs to scan
-URLNEW="${PS}"/paramspider.url.txt.new
+# New hosts to scan
+HOSTNEW="${PS}"/paramspider.host.txt.new
 
-# Collect new URLs since last run
-find "${HOME}"/.proteus/rawdata -newer "${TSTAMP}" -name url.txt.new  -exec cat {} \; > "${URLNEW}"
+# Collect new hosts since last run
+find "${HOME}"/.proteus/rawdata -newer "${TSTAMP}" -name host.txt.new  -exec cat {} \; > "${HOSTNEW}"
 
 # Set timestamp for next run
 touch "${TSTAMP}"
 
-if [ -s "${URLNEW}" ]
+if [ -s "${HOSTNEW}" ]
 then
 	rm -rf "${PS}"/output
-	axiom-scan "${URLNEW}" -m paramspider -o "${PS}"/output --rm-when-done --spinup 1
+	axiom-scan "${HOSTNEW}" -m paramspider -o "${PS}"/output --rm-when-done --spinup 1
 fi
 	
 # Log complete to discord
